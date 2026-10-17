@@ -101,7 +101,7 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 
 > 拓展：
 >
-> （1）带宽：100Mb   = 100/8MB
+> （1）带宽：100Mb   = 100/8MB,这里的100Mb的b就是bit
 >
 > （2）硬盘等硬件 1TB 实际会少于1TB，工业上 用1000代替1024
 
@@ -125,22 +125,28 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 
 ![image-20241127100810807](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100810807.png)
 
-+25和-25，一个字节为例的二进制值：
++25和-25，一个字节为例的二进制值：符号位不一致可以理解，为什么后面还不一样呢？
 
 ![image-20241127100957021](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100957021.png)
+
+假设一样：
 
 ```java
 +25:  0001 1001
 -25:  1001 1001（错误）
-+-------------
++------------- 两个二进制相加
       1011 0010   -50（错误）
     
 符号位不仅仅要用来表示正、负数，还要考虑计算问题。
 ```
 
+所以在java中：
+
 > Java中正数：正常表示法，正数不区分原码、反码、补码，都一样。
 >
 > Java中负数：补码表示法，负数区分原码、反码、补码。
+
+举个栗子：
 
 ```java
 +25：  
@@ -155,13 +161,15 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
     
     计算：（+25） + (-25)
     +25：0001 1001
-    -25：1110 0111
-    +-------------
+    -25：1110 0111 （补码后）
+    +------------- 
         10000 0000（9位二进制）
-    只有8位二进制，截取右边的8位，结果 00000000（十进制的0）
+    虽然有9位，但是只截取8位二进制，截取右边的8位，结果 00000000（十进制的0）
 ```
 
 ![image-20241127144031030](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127144031030.png)
+
+
 
 ## 1.5 一个字节可以表示多大数字呢？（理解后记忆）
 
@@ -175,7 +183,7 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
     1000 0001    十进制-127              
     						   补码：1000 0001
     						   反码：1000 0000
-    						   原码：1111 1111
+    						   原码：1111 1111 （-127）
     ....
     1111 1111    十进制：-1
     							补码：1111 1111
@@ -184,16 +192,18 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 两个特殊值：
     0000 0000    十进制：0
     1000 0000    十进制：-128   最高位是1，肯定是负数，还要满足计算规则
+
     
-    
--127： 补码1000 0001
-1   ：补码 0000 0001
+-127： 补码 1000 0001
+1   ： 补码 0000 0001
 相减 ------------------    
-      补码：1000 0000 （十进制-128）
-    数学中 -127 -1 = -128
+    补码：1000 0000 （十进制-128）
+    数学中 -127 -1 = -128 
 ```
 
 > 结论：1个字节可以表示的范围是 -128 ~ 127 
+
+
 
 ## 1.6 几种整数的存储范围（记byte和short）
 
@@ -217,9 +227,38 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 >
 > 3、double的精度大约是十进制科学计数法小数点后15-16位，float是7-8位
 
+flat和double的区别
+
+```java
+public class TestFloatDouble {
+    public static void main(String[] args) {
+        double pi = 3.1415926355867245;
+        System.out.println("double类型的pi = " + pi);
+        //double类型的pi = 3.1415926355867243
+        //大约是十进制科学计数法的小数点后15-16
+
+        float pi2 = 3.1415926355867245F;
+        System.out.println("float类型的pi2 = " + pi2);
+        //float类型的pi2 = 3.1415927
+        //大约是十进制科学计数法的小数点后7-8
+    }
+}
+
+```
+
+
+
+
+
+
+
 ## 1.8 各种基本数据类型的存储范围（记byte和char、boolean即可）
 
 ![image-20241127104249893](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127104249893.png)
+
+
+
+
 
 ## 1.9 char类型（记几个特殊字符的编码值）
 
@@ -254,8 +293,8 @@ public class TestChar {
         1    00000000 00000001（以2个字节为例）
         '1'  00000000 00110001
  */
-        System.out.println(1 + 0); //1
-        System.out.println('1' + 0 );//49
+        System.out.println(1 + 0); // 1
+        System.out.println('1' + 0 );// 49
     }
 }
 ```
@@ -328,7 +367,39 @@ public class TestChar3 {
 
 <img src="attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127110819138.png" alt="image-20241127110819138" style="zoom:67%;" />
 
-![image-20241127111514524](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127111514524.png)
+可以看到cmd中打印的hello world java 和下面的haha hi chai是对齐的，为什么呢？因为在编辑的时候，他们都算作一个制表位，一个制表位是8位，如果后面没有内容的话，剩下没有写完的，也是占位的。所以可以看到cmd中是对齐的，但是idea为什么不是对齐的呢？因为他是4位一个制表位。
+
+![image-20241127111514524](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127111514524.png)
+
+
+
+```java
+public class TestChar3 {
+    public static void main(String[] args) {
+        System.out.println('\'');
+        System.out.println('"');
+
+        System.out.println("\"");
+        System.out.println("hello\tworld\tjava");
+        System.out.println("haha\thi\tchai");
+
+        System.out.println("hello\bworld\bjava");//hellworljava
+        //\b相当于退一格
+        System.out.println("hello\rworld\rjava");//java
+        /*
+        hello遇到\r回车结束本行，光标回到本行开头，重新输出world，遇到\r回车结束本行，光标回到本行开头，重新输出java，所以最后只看到java
+         */
+        System.out.println("hello\nworld\njava");
+        /*
+        hello
+        world
+        java
+         */
+
+    }
+}
+
+```
 
 
 
@@ -341,77 +412,83 @@ public class TestChar3 {
 以下3种情况会发生自动类型转换：
 
 - 当我们把存储范围小的类型的值（字面量值，变量值，表达式的值）赋值给存储范围大的类型的变量时
+
+  ```java
+  public class TestTypeChange1 {
+      public static void main(String[] args) {
+          int num = 'a';
+          /*
+          'a'的字面量值是char类型
+          num变量是int类型
+          char占2个字节，int占4个字节
+          char的范围小，int范围大
+           */
+          System.out.println("num = " + num);
+          //num = 97
+  
+          double d = 1;
+          /*
+          1的字面量值是int类型
+          d是double
+          double > int
+           */
+          System.out.println("d = " + d);//d = 1.0
+  
+  
+      }
+  }
+  ```
+
 - 当多种类型混合运算时，会升级为它们当中最大的类型
+
+  ```java
+  public class TestTypeChange2 {
+      public static void main(String[] args) {
+          byte b = 1;
+          short s = 2;
+          /*
+          编译器，看到字面量1和2的时候，如果它们赋值给byte，short时，会判断它们在不在byte，short范围，
+          如果在他们范围内，可以正常赋值。
+           */
+          char c = 'a';
+          int i = 58;
+          float f = 2.1f;
+          System.out.println(b + s + c + i + f);//160.1
+      }
+  }
+  
+  ```
+
+  
+
 - 当byte与byte，short与short，char与char，或者它们3个之间的运算，会升级为int
 
-```java
-public class TestTypeChange1 {
-    public static void main(String[] args) {
-        int num = 'a';
-        /*
-        'a'的字面量值是char类型
-        num变量是int类型
-        char占2个字节，int占4个字节
-        char的范围小，int范围大
-         */
-        System.out.println("num = " + num);
-        //num = 97
+  ```java
+  public class TestTypeChange3 {
+      public static void main(String[] args) {
+          byte b1 = 1;
+          byte b2 = 2;
+         // byte b3 = b1 + b2;
+          /*
+          b1 + b2 升级为int，此时b1和b2是变量，每一个变量的范围是-128~127，计算可能超过byte范围，
+          这里直接报错，不会检查值 在不在byte范围。
+  
+          byte相加用的是int类型指令，所以结果是int
+           */
+          int b3 = b1 +b2;
+          System.out.println("b3 = " + b3);
+  
+          char c1 = 'a';
+          char c2 = '0';
+  //        char c3 = c1 + c2;//c1+c2是int，int>char，无法赋值
+          System.out.println(c1 + c2);//c1+c2虽然升级为int，但是println支持int结果
+          // 97 + 48 = 145
+      }
+  }
+  
+  ```
 
-        double d = 1;
-        /*
-        1的字面量值是int类型
-        d是double
-        double > int
-         */
-        System.out.println("d = " + d);//d = 1.0
 
-
-    }
-}
-```
-
-```java
-public class TestTypeChange2 {
-    public static void main(String[] args) {
-        byte b = 1;
-        short s = 2;
-        /*
-        编译器，看到字面量1和2的时候，如果它们赋值给byte，short时，会判断它们在不在byte，short范围，
-        如果在他们范围内，可以正常赋值。
-         */
-        char c = 'a';
-        int i = 58;
-        float f = 2.1f;
-        System.out.println(b + s + c + i + f);//160.1
-    }
-}
-
-```
-
-```java
-public class TestTypeChange3 {
-    public static void main(String[] args) {
-        byte b1 = 1;
-        byte b2 = 2;
-       // byte b3 = b1 + b2;
-        /*
-        b1 + b2 升级为int，此时b1和b2是变量，每一个变量的范围是-128~127，计算可能超过byte范围，
-        这里直接报错，不会检查值 在不在byte范围。
-
-        byte相加用的是int类型指令，所以结果是int
-         */
-        int b3 = b1 +b2;
-        System.out.println("b3 = " + b3);
-
-        char c1 = 'a';
-        char c2 = '0';
-//        char c3 = c1 + c2;//c1+c2是int，int>char，无法赋值
-        System.out.println(c1 + c2);//c1+c2虽然升级为int，但是println支持int结果
-        // 97 + 48 = 145
-    }
-}
-
-```
 
 ## 2.2 基本数据类型的强制类型转换（2种情况会用）
 
