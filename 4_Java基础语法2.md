@@ -10,7 +10,7 @@
 
 ### 1.2.1 进制分类（主要关注二进制和十进制）
 
-![image-20241127091906512](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127091906512.png)
+![image-20241127091906512](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127091906512.png)
 
 ### 1.2.2 进制换算（了解）
 
@@ -18,15 +18,15 @@
 
 十进制整数->二进制整数：除2倒取余
 
-![image-20241127092150919](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092150919.png)
+![image-20241127092150919](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092150919.png)
 
 二进制->十进制：权值相加法
 
-<img src="attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092318554.png" alt="image-20241127092318554" style="zoom:50%;" />
+<img src="attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092318554_png" alt="image-20241127092318554" style="zoom:50%;" />
 
 用计算器计算：
 
-![image-20241127092557422](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092557422.png)
+![image-20241127092557422](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127092557422.png)
 
 ### 1.2.3 演示各种进制的几个数字
 
@@ -123,11 +123,11 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 | double   | 8个字节 |
 | char     | 2个字节 |
 
-![image-20241127100810807](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100810807.png)
+![image-20241127100810807](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100810807.png)
 
 +25和-25，一个字节为例的二进制值：符号位不一致可以理解，为什么后面还不一样呢？
 
-![image-20241127100957021](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100957021.png)
+![image-20241127100957021](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127100957021.png)
 
 假设一样：
 
@@ -167,7 +167,7 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
     虽然有9位，但是只截取8位二进制，截取右边的8位，结果 00000000（十进制的0）
 ```
 
-![image-20241127144031030](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127144031030.png)
+![image-20241127144031030](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127144031030.png)
 
 
 
@@ -207,17 +207,17 @@ boolean类型的值true和false底层就是用1和0表示，1代表true，0代�
 
 ## 1.6 几种整数的存储范围（记byte和short）
 
-![image-20241127102417251](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127102417251.png)
+![image-20241127102417251](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127102417251.png)
 
-![image-20241127120122506](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127120122506.png)
+![image-20241127120122506](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127120122506.png)
 
 ## 1.7 小数（记3个结论即可）
 
-![image-20241127103431319](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127103431319.png)
+![image-20241127103431319](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127103431319.png)
 
-![image-20241127134532196](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127134532196.png)
+![image-20241127134532196](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127134532196.png)
 
-![image-20241127120158332](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127120158332.png)
+![image-20241127120158332](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127120158332.png)
 
 > 结论：
 >
@@ -254,7 +254,7 @@ public class TestFloatDouble {
 
 ## 1.8 各种基本数据类型的存储范围（记byte和char、boolean即可）
 
-![image-20241127104249893](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127104249893.png)
+![image-20241127104249893](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127104249893.png)
 
 
 
@@ -270,7 +270,7 @@ char类型的字符底层也是用二进制表示。
 
 最早的字符集：ASCII码字符集，最早规定127个字符。
 
-![image-20241127104601030](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127104601030.png)
+![image-20241127104601030](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127104601030.png)
 
 需要大家记住的几个特殊字符的编码值：
 
@@ -363,13 +363,13 @@ public class TestChar3 {
 
 
 
-<img src="attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127110638652.png" alt="image-20241127110638652" style="zoom:67%;" />
+<img src="attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127110638652.png" alt="image-20241127110638652" style="zoom:67%;" />
 
-<img src="attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127110819138.png" alt="image-20241127110819138" style="zoom:67%;" />
+<img src="attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127110819138.png" alt="image-20241127110819138" style="zoom:67%;" />
 
 可以看到cmd中打印的hello world java 和下面的haha hi chai是对齐的，为什么呢？因为在编辑的时候，他们都算作一个制表位，一个制表位是8位，如果后面没有内容的话，剩下没有写完的，也是占位的。所以可以看到cmd中是对齐的，但是idea为什么不是对齐的呢？因为他是4位一个制表位。
 
-![image-20241127111514524](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127111514524.png)
+![image-20241127111514524](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127111514524_png)
 
 
 
@@ -407,7 +407,7 @@ public class TestChar3 {
 
 ## 2.1 基本数据类型的自动类型转换（3种情况会判断）
 
-![image-20241127115556050](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127115556050.png)
+![image-20241127115556050](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127115556050.png)
 
 以下3种情况会发生自动类型转换：
 
@@ -492,7 +492,7 @@ public class TestChar3 {
 
 ## 2.2 基本数据类型的强制类型转换（2种情况会用）
 
-![image-20241127115610180](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127115610180.png)
+![image-20241127115610180](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127115610180.png)
 
 以下两种情况需要强制类型转换：
 
@@ -545,7 +545,7 @@ public class TestTypeChange5 {
 
 
 
-![image-20241127114150225](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127114150225.png)
+![image-20241127114150225](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127114150225.png)
 
 
 
@@ -581,13 +581,15 @@ public class TestString2 {
         String str = num + "";//""是一个空字符串，没有任何字符
         System.out.println(str);
 
-        String str2 = "15";
-//        int num2 = (int)str2;//强制转换不可以
-        int num2 = Integer.parseInt(str2); //后面要学习的方法
+        String str2 = "15"; // 想把字符串转成数字？
+//        int num2 = (int)str2;// 强制转换不可以
+        int num2 = Integer.parseInt(str2); // 后面要学习的方法
     }
 }
 
 ```
+
+> String类型不是基本数据类型
 
 
 
@@ -623,7 +625,7 @@ Java为程序员设计了非常多的运算符，为`基本数据类型`设计�
 
 ### 3.2.1 加减乘除模（掌握）
 
-```java
+```txt
 加（+）：
     有字符串参与就是拼接，结果也是字符串；
     没有字符串参与就是求和，结果就是数字；
@@ -724,16 +726,18 @@ public class TestIAdd3 {
         int a = 1;
         int b = a++;//自增不是独立的运算，与赋值在一起
         /*
-        (1)处理a++， 先取a的值1放一边（用专业的话说，放操作数栈），然后a自增1，a=2，  总结：先取值后自增
-        (2)把刚才取出来的值，赋值给b
+        (1)处理a++， 先取a的值1放一边（用专业的话说，放操作数栈），然后a自增1，a=2
+        (2)把刚才取出来的值(1)，赋值给b
+        总结：先取值后自增
          */
         System.out.println("a = " + a);//a=2
         System.out.println("b = " + b);//b=1
 
         int c = ++a;
         /*
-        (1)处理++a， 先对a自增1，a=3，然后取a的值3放一边（用专业的话说，放操作数栈）  总结：先自增再取值
+        (1)处理++a， 先对a自增1，a=3，然后取a的值3放一边（用专业的话说，放操作数栈）  
         (2)把刚才取出来的值，赋值给c
+        总结：先自增再取值
          */
         System.out.println("a = " + a);//a=3
         System.out.println("c = " + c);//c=3
@@ -742,7 +746,9 @@ public class TestIAdd3 {
 
 ```
 
-![image-20241127155809986](attachments/4.Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127155809986.png)
+![image-20241127155809986](attachments/4_Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.assets/image-20241127155809986.png)
+
+[自增自减介绍](./attachments/4_Java基础语法2.assets/Java开发核心技术面试题库_03自增自减.pptx)
 
 #### 案例4
 
@@ -909,7 +915,7 @@ public class TestAssign {
         System.out.println(a);//a=2
 
         int b = 1;
-        a *= a + b;//a = a * (a+b) = 2 * (2+1) = 6
+        a *= a + b;//a = a * (a+b) = 2 * (2+1) = 6   （右边是个整体）
         System.out.println("b = " + b);//b=1
         System.out.println("a = " + a);//a=6
 
@@ -1028,7 +1034,7 @@ public class TestCompare {
     false && ？ 结果是false
 
     当左边为false时，右边不看，结果直接是false，所以效率比较高。
-    开发中更多的用下面这个。
+    开发中更多的用&&。
     
 短路或（||）
     true ||  ？  结果是true
@@ -1036,7 +1042,7 @@ public class TestCompare {
     false ||  false 结果是false
     
     当左边为true是，右边不看了，结果直接是true，所以效率比较高。
-    开发中更多的用下面这个。
+    开发中更多的用||。
 ```
 
 ```java
