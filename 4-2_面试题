@@ -1,0 +1,168 @@
+###  题1：Java的基本数据类型有哪些？
+
+8种基本数据类型
+
+整数类型：byte，short，int，long
+
+浮点型：float，double
+
+单字符类型：char
+
+布尔型：boolean
+
+特别说明：String不属于基本数据类型
+
+### 题2：请简述标识符的命名规则和规范？
+
+命名规则：
+
+- 只能使用26个英文字母（大小写），数字0-9，下划线_，美元符号$
+- 数字不能开头
+- 不能直接使用关键字、保留字、特殊值
+- 不能包含空格
+- 严格区分大小写
+
+命名规范：
+
+- 见名知意
+- 类名：大驼峰命名法，形式：XxxYyyZzz
+- 变量名：小驼峰命名法，形式：xxxYyyZzz
+- 包名：所有单词小写，用.分割，形式：xxx.yyy.zzz
+- 常量名：所有单词大写，用_分割，形式：XXX_YYY_ZZZ
+
+### 题3：Java可以用中文当标识符吗？
+
+可以，但是不会这么用
+
+### 题4：Java的注释有几种？
+
+单行注释：//
+
+多行注释：/* */
+
+文档注释：/** */
+
+### 题5：Java的老东家和现东家是谁？
+
+原来属于 SUN（Stanford University Network），现在属于Oracle（甲骨文）
+
+### 题6：JDK、JRE、JVM是什么，它们有什么关系？
+
+JDK：Java开发工具包（Java Development Kit）（Java Developer’s Kit）
+
+JRE：Java运行环境（Java Runtime Environment）
+
+JVM：Java虚拟机（Java Virtual Machine）
+
+JDK = JRE + 开发工具(javac，java，jar等)
+
+JRE = JVM + 核心类库（String，Math，System等）
+
+
+
+## 题7：0.1+0.2等于0.3吗，为什么？
+
+可能不等于0.3，因为float或double是不精确的。
+
+如果记得就深入：因为float和double是采用IEEE754标准法，底层的二进制是分为 符号位 + 指数位 + 尾数位，在十进制转为二进制的过程中，可能无法让每一个十进制小数值找到对应的唯一的二进制序列。
+
+
+
+## 题8：下面代码的运行结果？
+
+```java
+public class Exam4 {
+    public static void main(String[] args) {
+        int a = 1;
+        System.out.println(a++);//先取a的值1放一边，紧接着a自增为2，但是输出的是取出来的1
+        System.out.println(a);//2
+        a = a++;//先取a的值2放一边，紧接着a自增为3，但是又把取出来的2重新赋值给a
+        System.out.println("a = " + a);//2
+        //运行结果：1  2  2
+        //运行结果：1  2  a=2
+    }
+}
+```
+
+
+
+## 题9：下面代码的运行结果？
+
+```java
+public class Exam5 {
+    public static void main(String[] args) {
+        int x = 1, y = 1;
+        System.out.println(x++ == 2 && ++y == 1); //false
+        /*
+        (1)x++：先取x的值1放一边，紧接着x自增为2,
+        (2)用取出来的1与2做比较 1==2 false
+        &&  左边是false时，右边不看
+        
+        经过这一句代码  x = 2, y = 1
+        */
+        
+        System.out.println(++x == 2 & ++y == 2); //false
+        /*
+        (1)++x，先对x自增1，x=3，再取x的值3
+        (2)用取出来的3与2比较 3==2 false
+        & 不会发生短路，即使左边是false，右边继续看
+        (3)++y，先对y自增1，y=2，再取y的值2
+        (4)用取出来的2与2比较，2==2 true
+        (5)false & true 结果是false
+        */
+        System.out.println("x = " + x + ", y = " + y);//x=3,y=2
+    }
+}
+```
+
+
+
+## 题10：下面代码的运行结果？（附加题）
+
+```java
+public class Exam6 {
+    public static void main(String[] args) {
+        char x = 'a';
+        int i = 10;
+        System.out.println(true ? x : i);//x和i都是变量，它们的类型不一致，需要统一，统一为int
+        								 // true ? 97 : 10  结果是97
+        System.out.println(true ? 'a' : 10);//'a'
+        System.out.println(true ? 'a' : 70000);//97
+        /*
+        10在0-65535之内，'a'与10都看成char类型
+        70000不在0-65535之内，'a'与70000要统一为int类型
+        */
+        /*
+        条件 ? 结果1 ： 结果2
+        条件运算符的两个结果的类型必须是一致的，如果类型不一致，会自动类型转换统一成一致的，如果无法通过自动类型转换统一的，就会报错。
+        
+        
+        */
+    }
+}
+```
+
+
+
+
+
+## 拓展
+
+```java
+public class TestType {
+    public static void main(String[] args) {
+        //Java编译器对于字面量值的判断
+        //如果没有和参考的依据的话，整数字面量值默认是int类型
+        //如果有可参考的依据的话，看情况
+        byte b1 = 1;//此时右边的1可以看成是byte类型，因为可以参考b1前面的byte
+        //byte b2 = 200;//200本来参考b2前面的byte，想要看成byte类型，但是byte的范围是-128-127，超过byte范围，只能看int算
+        char c1 = 97;//此时97参考c1前面的char，看成char类型，对应的字符是'a'
+//        char c2 = 70000;//70000参考c2前面的char，看成char类型，但是char编码值的范围是0-65535，超过范围
+
+        System.out.println(true ? 'a' : 10);//10可以看成与'a'是同类型的char
+        System.out.println(true ? 'a' : 70000);//70000超过char的范围的，所以只能看成int  'a'就必须转为97
+    }
+}
+
+```
+
