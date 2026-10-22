@@ -1,7 +1,7 @@
 
 ## 计算机组成（了解）
 
-<img src="./attachments/1_Java%E5%9F%BA%E7%A1%80%E6%A6%82%E8%BF%B0.assets/image-20241126092434687.png" alt="image-20241126092434687" style="zoom: 50%;" />
+<img src="attachments/1_Java%E5%9F%BA%E7%A1%80%E6%A6%82%E8%BF%B0.assets/image-20241126092434687.png" alt="image-20241126092434687" style="zoom: 50%;" />
 
 ## 几个DOS命令（了解）
 
