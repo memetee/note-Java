@@ -379,6 +379,63 @@ public class TestInput {
 ![image-20241129140413570](./attachments/5_Java基础语法3.assets/image-20241129140413570.png)
 
 ```java
+
+```
+
+### 2.2.3 next()和nextLine()
+
+- nextLine()方法，从读取数据的当前位置开始读取直到遇到换行符。读取时连同换行符一起读取，但是返回的结果中不包含换行符。
+
+  ```java
+  ⬆️hello world	回车换行
+    hello world 回车换行⬇️
+    
+    // int age = input.nextInt();
+    // 读取上面这部分，会从hello一直读到回车结束
+    读取的内容：" hello world \n"
+    返回的结果: " hello world"
+      nextLine() 方法
+  ```
+
+  
+
+- next()、nextInt()、nextDouble()等方法，从读取数据的当前位置开始找第一个非空格、换行等空白字符开始读取数据至下一个空格、换行等字符结束读取，读取时不读取换行符。
+
+  ```java
+  // next()
+  ⬆️hello world 回车换行
+    hello ⬆️ world 回车换行
+    
+    读取内容: " hello"
+    返回的结果: "hello"
+  
+  // nextInt()
+  ⬆️回车换行
+   回车换行⬆️
+   读取的内容: "\n"
+   返回的结果: ""
+   
+  // next()
+  ⬆️回车换行
+  ⬆️回车换行
+  读取的内容: ""
+    
+  // 
+  ```
+
+  
+
+  next()方法
+
+  ![image-20261023003000802](./attachments/5_Java基础语法3.assets/image-20261023003000802.png)
+
+  nextLine()方法
+
+  ![image-20261023003242229](./attachments/5_Java基础语法3.assets/image-20261023003242229.png)
+
+  nextLine读取的时候会读取换行，但是显示的时候不会显示换行
+
+```java
 import java.util.Scanner;
 
 public class TestInput2 {
@@ -411,11 +468,9 @@ public class TestInput2 {
 }
 ```
 
-### 2.2.3 next()和nextLine()
-
 暂时我们从控制台接收数据，不要用nextLine()方法。
 
-```
+```java
 import java.util.Scanner;
 
 public class TestInput3 {
@@ -443,6 +498,8 @@ public class TestInput3 {
 }
 ```
 
+
+
 ## 2.3 分支语句之条件判断
 
 ### 2.3.1 单分支条件判断
@@ -455,7 +512,7 @@ if(条件表达式){
 
 当if条件成立，就执行语句块1，否则就不执行语句块1；
 
-```
+```java
 import java.util.Scanner;
 
 public class TestIf {
@@ -483,9 +540,11 @@ public class TestIf {
 }
 ```
 
+
+
 ### 2.3.2 双分支条件判断
 
-```
+```java
 if(条件表达式){
     语句块1;
 }else{
