@@ -37,6 +37,8 @@
 public class TestBitMove {
     public static void main(String[] args) {
         System.out.println(3 << 2);
+      
+// 左移
         /*
         3的二进制：00000000 00000000 00000000 00000011
         3<<2     00000000 00000000 00000000 00001100
@@ -51,6 +53,7 @@ public class TestBitMove {
         // 5 * 2的4次 = 5 * 16 = 80
 
 
+// 右移
         System.out.println(13 >> 2);
         /*
         快速计算方式：右移几位相当于除以2的几次方
@@ -77,6 +80,7 @@ public class TestBitMove {
             最高位的1表示负数  -4
          */
 
+// 无符号右移
         System.out.println(13 >>> 2);
         /*
         对于正数来说，>>>与>>相同
@@ -95,6 +99,7 @@ public class TestBitMove {
 
          */
 
+// 特殊情况
         System.out.println(5<<29);//变为负数，最高位原来是0，现在为1
         System.out.println(5<<34);//20  当移位的位数超过当前类型的总位数，会处理，直到移位的位数在总位数范围内
         //34 - 32 = 2
@@ -120,28 +125,29 @@ public class TestBitMove {
 
 ![image-20241129095501187](./attachments/5_Java基础语法3.assets/image-20241129095501187.png) ![image-20241129095520348](./attachments/5_Java基础语法3.assets/image-20241129095520348.png) ![image-20241129095536508](./attachments/5_Java基础语法3.assets/image-20241129095536508.png)
 
-```
+```java
 public class TestBitLogic {
     public static void main(String[] args) {
         System.out.println( 5 & 3);
         /*
         5的二进制补码：00000000 00000000 00000000 00000101
         3的二进制补码：00000000 00000000 00000000 00000011
-        5 & 3     : 00000000 00000000 00000000 00000001（十进制1）
+        5 & 3     :  00000000 00000000 00000000 00000001（十进制1）（都为1，才是1，如果有一个不是1，就是0）
+        
          */
 
         System.out.println( 5 | 3);
         /*
         5的二进制补码：00000000 00000000 00000000 00000101
         3的二进制补码：00000000 00000000 00000000 00000011
-        5 | 3     : 00000000 00000000 00000000 00000111（十进制7）
+        5 | 3     :  00000000 00000000 00000000 00000111（十进制7）（只要有一个是1，就是1）
          */
 
         System.out.println( 5 ^ 3);
         /*
         5的二进制补码：00000000 00000000 00000000 00000101
         3的二进制补码：00000000 00000000 00000000 00000011
-        5 ^ 3     : 00000000 00000000 00000000 00000110（十进制6）
+        5 ^ 3     :  00000000 00000000 00000000 00000110（十进制6）（都为1，就是0，都是0还是0，其余是1）
 
          */
 
@@ -158,7 +164,7 @@ public class TestBitLogic {
 
 ![image-20241129095556226](./attachments/5_Java基础语法3.assets/image-20241129095556226.png)
 
-```
+```java
 public class TestBitNegation {
     public static void main(String[] args) {
         System.out.println(~5);
@@ -177,6 +183,40 @@ public class TestBitNegation {
 - 尽量不要写太复杂的表达式，如果计算比较复杂，那么分步骤写更好一些
 - 如果自己写代码时不确定优先级，查表或者加()
 - 大概记一些：一元运算符 > 算术 > 移位 > 比较 > 逻辑 > 条件 > 赋值
+
+## 1.4 练习题
+
+图片中的完整文本如下，方便直接复制：
+
+## 10、位运算符基础练习
+
+### 练习题 1: 位与 (&)
+
+**题目：** 给定两个整数 `a = 4` 和 `b = 3`，计算 `a & b` 的结果。
+
+### 练习题 2: 位或 (|)
+
+**题目：** 给定两个整数 `x = 7` 和 `y = 2`，计算 `x | y` 的结果。
+
+### 练习题 3: 位异或 (^)
+
+**题目：** 给定两个整数 `m = 10` 和 `n = 4`，计算 `m ^ n` 的结果。
+
+### 练习题 4: 按位取反 (~)
+
+**题目：** 给定一个整数 `k = -8`，计算 `~k` 的结果。
+
+### 练习题 5: 左移 (<<)
+
+**题目：** 给定一个整数 `p = 3`，计算 `p << 2` 的结果。
+
+### 练习题 6: 右移 (>>)
+
+**题目：** 给定一个整数 `q = 16`，计算 `q >> 3` 的结果。
+
+### 练习题 7: 无符号右移 (>>>)
+
+**题目：** 给定一个整数 `r = -16`，计算 `r >>> 2` 的结果。
 
 # 二、流程控制语句结构
 
@@ -197,7 +237,7 @@ System.out.println(); //代码的快捷模板 sout
 
 ### 2、输出xxx之后不换行
 
-```
+```java
 System.out.print();
 public class TestPrint {
     public static void main(String[] args) {
@@ -231,7 +271,7 @@ public class TestPrint {
 
 print()和println()里面都支持1个参数值，如果有多个数据需要在一个输出语句里面输出，必须把它们拼接（以字符串的形式拼接）起来。
 
-```
+```java
 public class TestPrint2 {
     public static void main(String[] args) {
         int a = 1, b = 2;
@@ -273,7 +313,7 @@ public class TestPrint2 {
 
 第四步：建议大家关闭资源
 
-```
+```java
 import java.util.Scanner; //导包，告诉编译器和JVM去哪里找到这个工具类，JRE中包含很多核心类库
 
 public class TestInput {
@@ -338,7 +378,7 @@ public class TestInput {
 
 ![image-20241129140413570](./attachments/5_Java基础语法3.assets/image-20241129140413570.png)
 
-```
+```java
 import java.util.Scanner;
 
 public class TestInput2 {
