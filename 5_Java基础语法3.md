@@ -378,9 +378,7 @@ public class TestInput {
 
 ![image-20241129140413570](./attachments/5_Java基础语法3.assets/image-20241129140413570.png)
 
-```java
 
-```
 
 ### 2.2.3 next()和nextLine()
 
